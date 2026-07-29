@@ -1,0 +1,132 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "title": "Tuyến rước Lễ hội Tháng 3 Âm lịch (Dữ liệu vẽ chính xác 100% của người dùng)",
+    "totalSegments": 3
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 1,
+        "order": 1,
+        "fromPoint": "loc-chilang",
+        "toPoint": "loc-nghenhluong",
+        "fromName": "352 Chi Lăng",
+        "toName": "Nghênh Lương Đình",
+        "transportType": "boat",
+        "transportLabel": "Thuyền rước",
+        "distance": "3.5 km",
+        "estimatedTime": "25 phút",
+        "description": "Chặng 1: Xuất phát từ bến Thánh đường 352 Chi Lăng, đoàn thuyền rước xuôi dòng sông Đông Ba ra sông Hương tiến về bến Nghênh Lương Đình.",
+        "ritualActivity": "Đoàn thuyền giăng cờ hoa rực rỡ, tiếng trống chiêng âm vang trên lòng sông Hương. Trên thuyền chính cử hành nghi thức dâng hương bái vọng."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.5913353, 16.4888089],
+          [107.5920702, 16.4887163],
+          [107.5919683, 16.4870343],
+          [107.5916304, 16.4856969],
+          [107.5915499, 16.4836445],
+          [107.5914372, 16.4809233],
+          [107.5916733, 16.4782741],
+          [107.5917108, 16.4748687],
+          [107.5914587, 16.4730940],
+          [107.5879611, 16.4681606],
+          [107.5817411, 16.4642941],
+          [107.5813119, 16.4649114]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 2,
+        "order": 2,
+        "fromPoint": "loc-nghenhluong",
+        "toPoint": "loc-dienhuenam",
+        "fromName": "Nghênh Lương Đình",
+        "toName": "Điện Huệ Nam (Điện Hòn Chén)",
+        "transportType": "boat",
+        "transportLabel": "Thuyền rước",
+        "distance": "12.8 km",
+        "estimatedTime": "75 phút",
+        "description": "Chặng 2: Rời Nghênh Lương Đình, đoàn bằng thuyền rước ngược dòng sông Hương uốn lượn qua Kim Long, Chùa Thiên Mụ, Văn Thánh rồi ngược lên ngọn núi Ngọc Trản cập bến Điện Huệ Nam.",
+        "ritualActivity": "Đoàn thuyền rước giăng cờ biểu rực rỡ ngược thượng nguồn sông Hương. Tiếng đàn ca chầu văn vang vọng dọc lòng sông trong không gian tâm linh linh thiêng."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.5813119, 16.4649114],
+          [107.5794666, 16.4626067],
+          [107.5730722, 16.4604254],
+          [107.5627725, 16.4568448],
+          [107.5499408, 16.4516177],
+          [107.5408428, 16.4514531],
+          [107.5310151, 16.4478311],
+          [107.5270669, 16.4465552],
+          [107.5272386, 16.4425215],
+          [107.5325601, 16.4366355],
+          [107.5382249, 16.4346186],
+          [107.5550477, 16.4298437],
+          [107.5613556, 16.4279626],
+          [107.5636569, 16.4258736],
+          [107.5639895, 16.4233368],
+          [107.5636677, 16.4217108],
+          [107.5629327, 16.4219630]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 3,
+        "order": 3,
+        "fromPoint": "loc-dienhuenam",
+        "toPoint": "loc-chilang-return",
+        "fromName": "Điện Huệ Nam (Điện Hòn Chén)",
+        "toName": "352 Chi Lăng",
+        "transportType": "boat",
+        "transportLabel": "Thuyền rước",
+        "distance": "16.3 km",
+        "estimatedTime": "90 phút",
+        "description": "Chặng 3: Sau khi kết thúc đại lễ tại Điện Hòn Chén, đoàn thuyền rước xuôi theo dòng uốn lượn của sông Hương trở về bến 352 Chi Lăng cử hành Lễ Hoàn Tạ.",
+        "ritualActivity": "Đoàn thuyền xuôi dòng sông Hương nhẹ nhàng, các tín đồ dâng hương tạ ơn trời đất và Mẫu Thượng Thiên cho hành trình trọn vẹn bình an."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.5629327, 16.4219630],
+          [107.5636677, 16.4217108],
+          [107.5639895, 16.4233368],
+          [107.5636569, 16.4258736],
+          [107.5613556, 16.4279626],
+          [107.5550477, 16.4298437],
+          [107.5382249, 16.4346186],
+          [107.5325601, 16.4366355],
+          [107.5272386, 16.4425215],
+          [107.5270669, 16.4465552],
+          [107.5310151, 16.4478311],
+          [107.5408428, 16.4514531],
+          [107.5499408, 16.4516177],
+          [107.5627725, 16.4568448],
+          [107.5730722, 16.4604254],
+          [107.5794666, 16.4626067],
+          [107.5813119, 16.4649114],
+          [107.5817411, 16.4642941],
+          [107.5879611, 16.4681606],
+          [107.5914587, 16.4730940],
+          [107.5917108, 16.4748687],
+          [107.5916733, 16.4782741],
+          [107.5914372, 16.4809233],
+          [107.5915499, 16.4836445],
+          [107.5916304, 16.4856969],
+          [107.5919683, 16.4870343],
+          [107.5920702, 16.4887163],
+          [107.5913353, 16.4888089]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "app": {
+    "title": "Bản đồ số Hành trình Lễ rước Điện Huệ Nam",
+    "subtitle": "Khám phá không gian và các điểm diễn ra lễ rước",
+    "version": "1.0.0",
+    "language": "vi",
+    "description": "Sản phẩm mẫu phục vụ đề tài Ứng dụng công nghệ số trong bảo vệ và phát huy giá trị Lễ hội Điện Huệ Nam"
+  },
+  "map": {
+    "center": [16.4500, 107.5650],
+    "zoom": 13,
+    "minZoom": 10,
+    "maxZoom": 18,
+    "maxBounds": [
+      [16.35, 107.45],
+      [16.55, 107.70]
+    ],
+    "zoomControl": false,
+    "attributionControl": true
+  },
+  "tileLayers": {
+    "light": {
+      "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "attribution": "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>",
+      "maxZoom": 19
+    },
+    "dark": {
+      "url": "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+      "attribution": "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> &copy; <a href='https://carto.com/'>CARTO</a>",
+      "maxZoom": 20,
+      "subdomains": "abcd"
+    }
+  },
+  "minimap": {
+    "enabled": true,
+    "position": "bottomleft",
+    "width": 150,
+    "height": 150,
+    "zoomLevelOffset": -5
+  },
+  "journey": {
+    "autoPlayInterval": 5000,
+    "animationDuration": 1500,
+    "polylineDrawDuration": 2000,
+    "zoomPadding": [50, 50],
+    "flyToDuration": 1.5
+  },
+  "theme": {
+    "default": "dark"
+  },
+  "data": {
+    "locationsPath": "data/locations.json",
+    "routesPath": "data/routes-march.geojson"
+  }
+}

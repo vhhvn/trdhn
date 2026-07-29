@@ -1,0 +1,257 @@
+/* ============================================================
+   THEME.CSS - Design Tokens & Theme Variables
+   Bản đồ số Hành trình Lễ rước Điện Huệ Nam
+   ============================================================ */
+
+/* --- CSS Custom Properties (Design Tokens) --- */
+
+:root {
+  /* ---- Typography ---- */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Inter', sans-serif;
+
+  --fs-xs: 0.6875rem;    /* 11px */
+  --fs-sm: 0.75rem;      /* 12px */
+  --fs-base: 0.875rem;   /* 14px */
+  --fs-md: 1rem;         /* 16px */
+  --fs-lg: 1.125rem;     /* 18px */
+  --fs-xl: 1.25rem;      /* 20px */
+  --fs-2xl: 1.5rem;      /* 24px */
+  --fs-3xl: 1.875rem;    /* 30px */
+  --fs-4xl: 2.25rem;     /* 36px */
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.25;
+  --lh-base: 1.5;
+  --lh-relaxed: 1.75;
+
+  /* ---- Spacing ---- */
+  --sp-1: 0.25rem;     /* 4px */
+  --sp-2: 0.5rem;      /* 8px */
+  --sp-3: 0.75rem;     /* 12px */
+  --sp-4: 1rem;        /* 16px */
+  --sp-5: 1.25rem;     /* 20px */
+  --sp-6: 1.5rem;      /* 24px */
+  --sp-8: 2rem;        /* 32px */
+  --sp-10: 2.5rem;     /* 40px */
+  --sp-12: 3rem;       /* 48px */
+  --sp-16: 4rem;       /* 64px */
+
+  /* ---- Border Radius ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  /* ---- Transitions ---- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-smooth: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Z-index ---- */
+  --z-map: 1;
+  --z-map-controls: 400;
+  --z-header: 500;
+  --z-panel: 600;
+  --z-progress: 650;
+  --z-controls: 700;
+  --z-overlay: 800;
+  --z-modal: 900;
+  --z-toast: 1000;
+
+  /* ---- Layout ---- */
+  --header-height: 64px;
+  --controls-height: 64px;
+  --progress-height: 48px;
+  --panel-width: 380px;
+  --minimap-size: 150px;
+
+  /* ---- Route Colors ---- */
+  --route-active-width: 5px;
+  --route-visited-width: 3px;
+  --route-unvisited-width: 2px;
+
+  /* ---- Marker ---- */
+  --marker-size: 36px;
+  --marker-size-active: 44px;
+  --marker-pulse-size: 60px;
+}
+
+
+/* ============================================================
+   DARK THEME (Default)
+   ============================================================ */
+
+[data-theme="dark"] {
+  /* ---- Core Colors ---- */
+  --color-primary: #F0A500;
+  --color-primary-hover: #FFB627;
+  --color-primary-dim: rgba(240, 165, 0, 0.15);
+  --color-primary-glow: rgba(240, 165, 0, 0.3);
+
+  --color-secondary: #E74C3C;
+  --color-secondary-hover: #FF6B5A;
+
+  --color-accent: #58A6FF;
+  --color-accent-hover: #79C0FF;
+  --color-accent-dim: rgba(88, 166, 255, 0.12);
+
+  /* ---- Background ---- */
+  --color-bg: #0D1117;
+  --color-bg-secondary: #111820;
+  --color-surface: #161B22;
+  --color-surface-hover: #1C2330;
+  --color-surface-elevated: #21262D;
+
+  /* ---- Text ---- */
+  --color-text: #E6EDF3;
+  --color-text-secondary: #8B949E;
+  --color-text-tertiary: #6E7681;
+  --color-text-inverse: #0D1117;
+
+  /* ---- Border ---- */
+  --color-border: #30363D;
+  --color-border-hover: #484F58;
+  --color-border-active: #F0A500;
+
+  /* ---- Semantic ---- */
+  --color-success: #3FB950;
+  --color-warning: #D29922;
+  --color-error: #F85149;
+  --color-info: #58A6FF;
+
+  /* ---- Route States ---- */
+  --color-route-active: #F0A500;
+  --color-route-visited: #6B7280;
+  --color-route-unvisited: #30363D;
+  --color-route-glow: rgba(240, 165, 0, 0.4);
+
+  /* ---- Marker States ---- */
+  --color-marker-start: #3FB950;
+  --color-marker-stop: #F0A500;
+  --color-marker-end: #E74C3C;
+  --color-marker-current: #58A6FF;
+  --color-marker-visited: #6B7280;
+  --color-marker-default: #484F58;
+
+  /* ---- Glass Effect ---- */
+  --glass-bg: rgba(22, 27, 34, 0.85);
+  --glass-border: rgba(48, 54, 61, 0.6);
+  --glass-blur: blur(12px);
+
+  /* ---- Shadows (Dark) ---- */
+  --shadow-glow: 0 0 20px rgba(240, 165, 0, 0.15);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-panel: -4px 0 24px rgba(0, 0, 0, 0.5);
+
+  /* ---- Scrollbar ---- */
+  --scrollbar-track: #161B22;
+  --scrollbar-thumb: #30363D;
+  --scrollbar-thumb-hover: #484F58;
+
+  /* ---- Header gradient ---- */
+  --header-bg: linear-gradient(135deg, #161B22 0%, #1C2330 100%);
+  --header-border: #30363D;
+
+  /* ---- Progress bar ---- */
+  --progress-bg: #21262D;
+  --progress-fill: linear-gradient(90deg, #F0A500, #FFB627);
+  --progress-dot: #F0A500;
+  --progress-dot-inactive: #484F58;
+}
+
+
+/* ============================================================
+   LIGHT THEME
+   ============================================================ */
+
+[data-theme="light"] {
+  /* ---- Core Colors ---- */
+  --color-primary: #C8860C;
+  --color-primary-hover: #A16F0A;
+  --color-primary-dim: rgba(200, 134, 12, 0.1);
+  --color-primary-glow: rgba(200, 134, 12, 0.2);
+
+  --color-secondary: #C0392B;
+  --color-secondary-hover: #A93226;
+
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
+  --color-accent-dim: rgba(37, 99, 235, 0.08);
+
+  /* ---- Background ---- */
+  --color-bg: #F0F2F5;
+  --color-bg-secondary: #E8ECF0;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F8F9FA;
+  --color-surface-elevated: #FFFFFF;
+
+  /* ---- Text ---- */
+  --color-text: #1F2937;
+  --color-text-secondary: #4B5563;
+  --color-text-tertiary: #9CA3AF;
+  --color-text-inverse: #FFFFFF;
+
+  /* ---- Border ---- */
+  --color-border: #E5E7EB;
+  --color-border-hover: #D1D5DB;
+  --color-border-active: #C8860C;
+
+  /* ---- Semantic ---- */
+  --color-success: #16A34A;
+  --color-warning: #CA8A04;
+  --color-error: #DC2626;
+  --color-info: #2563EB;
+
+  /* ---- Route States ---- */
+  --color-route-active: #C8860C;
+  --color-route-visited: #9CA3AF;
+  --color-route-unvisited: #D1D5DB;
+  --color-route-glow: rgba(200, 134, 12, 0.3);
+
+  /* ---- Marker States ---- */
+  --color-marker-start: #16A34A;
+  --color-marker-stop: #C8860C;
+  --color-marker-end: #DC2626;
+  --color-marker-current: #2563EB;
+  --color-marker-visited: #9CA3AF;
+  --color-marker-default: #6B7280;
+
+  /* ---- Glass Effect ---- */
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(229, 231, 235, 0.8);
+  --glass-blur: blur(12px);
+
+  /* ---- Shadows (Light) ---- */
+  --shadow-glow: 0 0 20px rgba(200, 134, 12, 0.12);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-panel: -2px 0 16px rgba(0, 0, 0, 0.1);
+
+  /* ---- Scrollbar ---- */
+  --scrollbar-track: #F0F2F5;
+  --scrollbar-thumb: #D1D5DB;
+  --scrollbar-thumb-hover: #9CA3AF;
+
+  /* ---- Header ---- */
+  --header-bg: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+  --header-border: #E5E7EB;
+
+  /* ---- Progress bar ---- */
+  --progress-bg: #E5E7EB;
+  --progress-fill: linear-gradient(90deg, #C8860C, #E09D0E);
+  --progress-dot: #C8860C;
+  --progress-dot-inactive: #D1D5DB;
+}

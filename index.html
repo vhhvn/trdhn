@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta -->
+  <title>Bản đồ số Hành trình Lễ rước Điện Huệ Nam</title>
+  <meta name="description" content="Khám phá hành trình lễ rước Điện Huệ Nam (Tháng 3 và Tháng 7 Âm lịch) trên bản đồ số tương tác dọc sông Hương, thành phố Huế.">
+  <meta name="keywords" content="Điện Huệ Nam, lễ rước, bản đồ, WebGIS, Huế, sông Hương, tín ngưỡng, văn hóa, di sản">
+  <meta name="author" content="Dự án Bảo vệ và phát huy giá trị Lễ hội Điện Huệ Nam">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0D1117">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-minimap@3.6.1/dist/Control.MiniMap.min.css">
+  
+  <!-- App CSS -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- ============================================================
+       LOADING SCREEN
+       ============================================================ -->
+  <div class="loading-screen" role="alert" aria-live="polite">
+    <div class="loading-screen__icon">🏛️</div>
+    <h1 class="loading-screen__title">Bản đồ Lễ rước Điện Huệ Nam</h1>
+    <p class="loading-screen__text">Đang tải dữ liệu...</p>
+    <div class="loading-bar">
+      <div class="loading-bar__fill"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SEASON SELECTOR MODAL (Mở ra khi vào ứng dụng)
+       ============================================================ -->
+  <div class="season-modal-overlay active" id="season-modal" role="dialog" aria-modal="true" aria-labelledby="season-modal-title">
+    <div class="season-modal-card">
+      <div class="season-modal__header">
+        <div class="season-modal__icon">🏛️</div>
+        <h2 class="season-modal__title" id="season-modal-title">Chọn Kỳ Lễ Hội Rước</h2>
+        <p class="season-modal__subtitle">Vui lòng chọn kỳ lễ hội bạn muốn khám phá hành trình rước</p>
+      </div>
+
+      <div class="season-options">
+        <!-- Option 1: Tháng 3 -->
+        <button class="season-card-btn active" data-season="march">
+          <div class="season-card__badge">🌸 Lễ hội Mùa Xuân</div>
+          <h3 class="season-card__title">Lễ hội Tháng 3 Âm lịch</h3>
+          <p class="season-card__desc">Tuyến rước từ Thánh đường 352 Chi Lăng qua Nghênh Lương Đình đến Điện Huệ Nam và trở về.</p>
+          <div class="season-card__route-preview">
+            <span>352 Chi Lăng</span> → <span>Nghênh Lương Đình</span> → <span>Điện Huệ Nam</span> → <span>352 Chi Lăng</span>
+          </div>
+        </button>
+
+        <!-- Option 2: Tháng 7 -->
+        <button class="season-card-btn" data-season="july">
+          <div class="season-card__badge season-card__badge--july">🌾 Chính hội Mùa Thu</div>
+          <h3 class="season-card__title">Lễ hội Tháng 7 Âm lịch</h3>
+          <p class="season-card__desc">Tuyến rước mở rộng từ 352 Chi Lăng đến Điện Huệ Nam, rước Bằng sang Đình Hải Cát và trở về.</p>
+          <div class="season-card__route-preview">
+            <span>Chi Lăng</span> → <span>Điện Huệ Nam</span> → <span>Đình Hải Cát</span> → <span>Chi Lăng</span>
+          </div>
+        </button>
+      </div>
+
+      <div class="season-modal__actions">
+        <button class="btn btn--primary btn-ripple btn--full" id="btn-confirm-season">
+          <span>Khám phá ngay</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       APP CONTAINER
+       ============================================================ -->
+  <div class="app-container">
+    
+    <!-- ======== HEADER ======== -->
+    <header class="app-header" role="banner">
+      <div class="header-brand">
+        <div class="header-logo" aria-hidden="true">🏛️</div>
+        <div class="header-text">
+          <h1 class="header-title">Bản đồ Hành trình Lễ rước Điện Huệ Nam</h1>
+          <p class="header-subtitle" id="header-season-label">Đang xem: Lễ hội Tháng 3 Âm lịch</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <!-- Season switch dropdown in header -->
+        <div class="season-selector-dropdown">
+          <button class="header-btn header-btn--text" id="btn-switch-season" title="Đổi kỳ lễ hội">
+            <span id="season-btn-text">🌸 Tháng 3</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+
+        <button class="header-btn" id="btn-theme-toggle" aria-label="Chuyển đổi giao diện sáng/tối" title="Đổi giao diện (T)"></button>
+        <button class="header-btn" id="btn-locate" aria-label="Vị trí của bạn" title="Vị trí của tôi">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+        </button>
+        <button class="header-btn" id="btn-fullscreen" aria-label="Toàn màn hình" title="Toàn màn hình (F)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ======== MAIN CONTENT ======== -->
+    <main class="app-main" role="main">
+      <div class="map-container">
+        <div id="map" role="application" aria-label="Bản đồ hành trình lễ rước"></div>
+      </div>
+
+      <aside class="info-panel" role="complementary" aria-label="Thông tin địa điểm">
+        <div class="info-panel__header">
+          <span class="info-panel__header-title">Thông tin địa điểm</span>
+          <button class="info-panel__close" aria-label="Đóng bảng thông tin" onclick="HueNamApp.PanelManager.hidePanel(); HueNamApp.Map.invalidateSize();">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="info-panel__body"></div>
+      </aside>
+    </main>
+
+    <!-- ======== PROGRESS BAR ======== -->
+    <div class="progress-container" role="navigation" aria-label="Tiến trình hành trình">
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar"><div class="progress-bar__fill"></div></div>
+        <div class="progress-dots"></div>
+      </div>
+      <span class="progress-text" aria-live="polite">Sẵn sàng</span>
+    </div>
+
+    <!-- ======== JOURNEY CONTROLS ======== -->
+    <nav class="journey-controls" role="navigation" aria-label="Điều khiển hành trình">
+      <button class="btn btn--secondary btn--icon btn-ripple" id="btn-prev" disabled title="Quay lại (←)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <button class="btn btn--primary btn-ripple" id="btn-next" title="Tiếp theo (→)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>Bắt đầu hành trình</span>
+      </button>
+
+      <button class="btn btn--secondary btn-ripple" id="btn-view-all" title="Xem toàn tuyến (V)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+        <span class="btn__text-mobile-hide">Toàn tuyến</span>
+      </button>
+
+      <button class="btn btn--secondary btn-ripple" id="btn-auto-play" title="Tự động (A)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span class="btn__text-mobile-hide">Tự động</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- MOBILE BOTTOM SHEET -->
+  <div class="bottom-sheet collapsed" role="complementary">
+    <div class="bottom-sheet__handle"><div class="bottom-sheet__handle-bar"></div></div>
+    <div class="bottom-sheet__header">
+      <span class="bottom-sheet__title">Thông tin địa điểm</span>
+      <button class="bottom-sheet__toggle">Xem chi tiết ▲</button>
+    </div>
+    <div class="bottom-sheet__body"></div>
+  </div>
+
+  <!-- COMPLETION OVERLAY -->
+  <div class="completion-overlay" role="dialog" aria-modal="true">
+    <div class="completion-card">
+      <div class="completion-card__icon">🎉</div>
+      <h2 class="completion-card__title">Hoàn thành hành trình!</h2>
+      <p class="completion-card__message">
+        Bạn đã hoàn thành hành trình khám phá Lễ rước Điện Huệ Nam. Cảm ơn bạn đã đồng hành cùng chúng tôi trên hành trình văn hóa tâm linh này.
+      </p>
+      <div class="completion-card__actions">
+        <button class="btn btn--primary btn-ripple" id="btn-restart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          <span>Bắt đầu lại</span>
+        </button>
+        <button class="btn btn--secondary btn-ripple" id="btn-view-all-complete">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+          <span>Xem toàn tuyến</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" aria-live="polite"></div>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-minimap@3.6.1/dist/Control.MiniMap.min.js"></script>
+  
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/dataLoader.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/markerManager.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/routeController.js"></script>
+  <script src="js/panelManager.js"></script>
+  <script src="js/progressManager.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/eventManager.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>

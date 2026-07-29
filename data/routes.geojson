@@ -1,0 +1,169 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "title": "Các chặng tuyến rước Điện Huệ Nam",
+    "description": "Dữ liệu GeoJSON các đoạn tuyến nối giữa các điểm dừng của hành trình lễ rước",
+    "totalSegments": 5,
+    "dataSource": "Ước tính từ bản đồ - Cần cập nhật bằng dữ liệu GPS thực tế",
+    "lastUpdated": "2025-01-01",
+    "coordinateSystem": "WGS84 (EPSG:4326)"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 1,
+        "order": 1,
+        "fromPoint": "point-01",
+        "toPoint": "point-02",
+        "fromName": "Bến Ngự",
+        "toName": "Cồn Hến",
+        "transportType": "boat",
+        "transportLabel": "Thuyền",
+        "distance": "1.0 km",
+        "estimatedTime": "15 phút",
+        "description": "Chặng đầu tiên – Đoàn thuyền rước khởi hành từ Bến Ngự, xuôi dòng sông Hương qua khu vực trung tâm thành phố hướng về phía Đông đến Cồn Hến.",
+        "ritualActivity": "Đoàn thuyền rước tiến trên sông Hương với cờ hoa rực rỡ, tiếng trống chiêng vang vọng. Trên thuyền chính, các vị chủ lễ thực hiện nghi thức dâng hương liên tục."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.58700, 16.45980],
+          [107.58820, 16.46030],
+          [107.58950, 16.46080],
+          [107.59050, 16.46120],
+          [107.59150, 16.46160],
+          [107.59280, 16.46200],
+          [107.59400, 16.46230],
+          [107.59500, 16.46250],
+          [107.59600, 16.46250]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 2,
+        "order": 2,
+        "fromPoint": "point-02",
+        "toPoint": "point-03",
+        "fromName": "Cồn Hến",
+        "toName": "Bến Đập Đá",
+        "transportType": "boat",
+        "transportLabel": "Thuyền",
+        "distance": "1.2 km",
+        "estimatedTime": "20 phút",
+        "description": "Chặng thứ hai – Từ Cồn Hến, đoàn rước tiếp tục xuôi dòng sông Hương về phía Đông Nam, đi qua các làng ven sông để đến Bến Đập Đá.",
+        "ritualActivity": "Các thuyền trong đoàn rước duy trì đội hình trang trọng, người dân hai bên bờ sông đứng chào đón và dâng hương hoa."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.59600, 16.46250],
+          [107.59700, 16.46200],
+          [107.59800, 16.46100],
+          [107.59900, 16.46000],
+          [107.59980, 16.45900],
+          [107.60050, 16.45800],
+          [107.60150, 16.45700],
+          [107.60300, 16.45600],
+          [107.60500, 16.45500]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 3,
+        "order": 3,
+        "fromPoint": "point-03",
+        "toPoint": "point-04",
+        "fromName": "Bến Đập Đá",
+        "toName": "Ngã ba Sình",
+        "transportType": "boat",
+        "transportLabel": "Thuyền",
+        "distance": "1.8 km",
+        "estimatedTime": "25 phút",
+        "description": "Chặng thứ ba – Đoạn dài nhất của hành trình, từ Bến Đập Đá đến Ngã ba Sình, nơi sông Hương gặp nhánh sông dẫn về phía Điện Huệ Nam.",
+        "ritualActivity": "Chặng dài nhất và trang nghiêm nhất trên sông. Trên thuyền chính diễn ra nghi lễ hát văn và múa hầu đồng. Khi gần đến Ngã ba Sình, các bài hát chuyển sang giai điệu hùng tráng."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.60500, 16.45500],
+          [107.60550, 16.45450],
+          [107.60600, 16.45380],
+          [107.60650, 16.45300],
+          [107.60700, 16.45220],
+          [107.60750, 16.45150],
+          [107.60800, 16.45100],
+          [107.60900, 16.45050],
+          [107.61000, 16.45000],
+          [107.61100, 16.44950],
+          [107.61200, 16.44880],
+          [107.61300, 16.44800]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 4,
+        "order": 4,
+        "fromPoint": "point-04",
+        "toPoint": "point-05",
+        "fromName": "Ngã ba Sình",
+        "toName": "Bến Điện Huệ Nam",
+        "transportType": "boat",
+        "transportLabel": "Thuyền",
+        "distance": "1.0 km",
+        "estimatedTime": "15 phút",
+        "description": "Chặng thứ tư – Từ Ngã ba Sình, đoàn rước rẽ vào nhánh sông nhỏ hướng về Bến Điện Huệ Nam. Không gian yên tĩnh hơn với hai bên bờ là ruộng đồng và làng mạc.",
+        "ritualActivity": "Đoàn rước đi chậm lại, không khí trang nghiêm hơn. Các bài kinh cầu được tụng liên tục trên thuyền chính, chuẩn bị cho nghi lễ cập bến."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.61300, 16.44800],
+          [107.61380, 16.44700],
+          [107.61450, 16.44600],
+          [107.61550, 16.44500],
+          [107.61650, 16.44350],
+          [107.61750, 16.44200],
+          [107.61850, 16.44050],
+          [107.61950, 16.43900],
+          [107.62000, 16.43800]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 5,
+        "order": 5,
+        "fromPoint": "point-05",
+        "toPoint": "point-06",
+        "fromName": "Bến Điện Huệ Nam",
+        "toName": "Điện Huệ Nam",
+        "transportType": "walking",
+        "transportLabel": "Đi bộ",
+        "distance": "0.5 km",
+        "estimatedTime": "10 phút",
+        "description": "Chặng cuối cùng – Đoàn rước lên bờ tại Bến Điện và đi bộ theo con đường dẫn vào khu vực Điện Huệ Nam linh thiêng.",
+        "ritualActivity": "Kiệu rước được rước trên vai, đoàn rước xếp đội hình trang trọng đi bộ vào Điện. Trống chiêng, cờ hoa, nhang khói tạo không gian linh thiêng tuyệt đối."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.62000, 16.43800],
+          [107.62030, 16.43750],
+          [107.62060, 16.43680],
+          [107.62100, 16.43600],
+          [107.62130, 16.43530],
+          [107.62170, 16.43460],
+          [107.62200, 16.43400]
+        ]
+      }
+    }
+  ]
+}

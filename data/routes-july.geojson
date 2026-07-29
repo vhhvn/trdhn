@@ -1,0 +1,159 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "title": "Tuyến rước Lễ hội Tháng 7 Âm lịch (Dữ liệu vẽ chính xác 100% của người dùng)",
+    "totalSegments": 4
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 1,
+        "order": 1,
+        "fromPoint": "loc-chilang",
+        "toPoint": "loc-dienhuenam",
+        "fromName": "352 Chi Lăng",
+        "toName": "Điện Huệ Nam (Điện Hòn Chén)",
+        "transportType": "boat",
+        "transportLabel": "Thuyền rước",
+        "distance": "16.3 km",
+        "estimatedTime": "90 phút",
+        "description": "Chặng 1: Xuất phát từ bến Thánh đường 352 Chi Lăng, đoàn đại rước bằng thuyền di chuyển uốn lượn theo lòng sông Đông Ba & sông Hương tiến thẳng về Điện Huệ Nam.",
+        "ritualActivity": "Hàng chục bằng thuyền đôi giăng cờ hoa, lọng kiệu lộng lẫy nối đuôi nhau trên sông Hương trong tiếng nhạc bát âm và hát chầu văn rộn rã."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.5913353, 16.4888089],
+          [107.5920702, 16.4887163],
+          [107.5919683, 16.4870343],
+          [107.5916304, 16.4856969],
+          [107.5915499, 16.4836445],
+          [107.5914372, 16.4809233],
+          [107.5916733, 16.4782741],
+          [107.5917108, 16.4748687],
+          [107.5914587, 16.4730940],
+          [107.5879611, 16.4681606],
+          [107.5817411, 16.4642941],
+          [107.5813119, 16.4649114],
+          [107.5794666, 16.4626067],
+          [107.5730722, 16.4604254],
+          [107.5627725, 16.4568448],
+          [107.5499408, 16.4516177],
+          [107.5408428, 16.4514531],
+          [107.5310151, 16.4478311],
+          [107.5270669, 16.4465552],
+          [107.5272386, 16.4425215],
+          [107.5325601, 16.4366355],
+          [107.5382249, 16.4346186],
+          [107.5550477, 16.4298437],
+          [107.5613556, 16.4279626],
+          [107.5636569, 16.4258736],
+          [107.5639895, 16.4233368],
+          [107.5636677, 16.4217108],
+          [107.5629327, 16.4219630]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 2,
+        "order": 2,
+        "fromPoint": "loc-dienhuenam",
+        "toPoint": "loc-haicat",
+        "fromName": "Điện Huệ Nam (Điện Hòn Chén)",
+        "toName": "Đình làng Hải Cát",
+        "transportType": "walking",
+        "transportLabel": "Đi bộ / Thuyền sang bến",
+        "distance": "0.6 km",
+        "estimatedTime": "10 phút",
+        "description": "Chặng 2: Rước Bằng và Sắc phong Thánh Mẫu từ Điện Huệ Nam (núi Ngọc Trản) di chuyển qua nhánh sông sang bến Đình làng Hải Cát yết viếng.",
+        "ritualActivity": "Nghi lễ rước Bằng trang nghiêm qua làng cổ Hải Cát, nhân dân lập bàn thờ nghênh đón kiệu Mẫu, âm nhạc bát âm rộn rã."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.5629327, 16.4219630],
+          [107.5615000, 16.4212000],
+          [107.5605000, 16.4205000]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 3,
+        "order": 3,
+        "fromPoint": "loc-haicat",
+        "toPoint": "loc-dienhuenam-return",
+        "fromName": "Đình làng Hải Cát",
+        "toName": "Điện Huệ Nam (Điện Hòn Chén)",
+        "transportType": "walking",
+        "transportLabel": "Đi bộ / Thuyền",
+        "distance": "0.6 km",
+        "estimatedTime": "10 phút",
+        "description": "Chặng 3: Rước Bằng và Sắc phong hồi điện trở lại Điện Huệ Nam sau khi cử hành xong nghi lễ bái yết tại Đình làng Hải Cát.",
+        "ritualActivity": "Đoàn rước kiệu Mẫu và Bằng hồi điện chuẩn bị cho Đại lễ tế đêm và nghi thức rải hoa đăng trên lòng sông Hương."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.5605000, 16.4205000],
+          [107.5615000, 16.4212000],
+          [107.5629327, 16.4219630]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segmentId": 4,
+        "order": 4,
+        "fromPoint": "loc-dienhuenam-return",
+        "toPoint": "loc-chilang-return",
+        "fromName": "Điện Huệ Nam (Điện Hòn Chén)",
+        "toName": "352 Chi Lăng",
+        "transportType": "boat",
+        "transportLabel": "Thuyền rước",
+        "distance": "16.3 km",
+        "estimatedTime": "90 phút",
+        "description": "Chặng 4: Đoàn đại rước xuôi theo dòng sông Hương uốn lượn trở về bến Thánh đường 352 Chi Lăng cử hành lễ Hoàn Tạ khép lại Chính hội.",
+        "ritualActivity": "Đoàn thuyền rước trở về trong niềm hân hoan, cử hành lễ an vị tượng Mẫu và phát lộc cho tín đồ."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [107.5629327, 16.4219630],
+          [107.5636677, 16.4217108],
+          [107.5639895, 16.4233368],
+          [107.5636569, 16.4258736],
+          [107.5613556, 16.4279626],
+          [107.5550477, 16.4298437],
+          [107.5382249, 16.4346186],
+          [107.5325601, 16.4366355],
+          [107.5272386, 16.4425215],
+          [107.5270669, 16.4465552],
+          [107.5310151, 16.4478311],
+          [107.5408428, 16.4514531],
+          [107.5499408, 16.4516177],
+          [107.5627725, 16.4568448],
+          [107.5730722, 16.4604254],
+          [107.5794666, 16.4626067],
+          [107.5813119, 16.4649114],
+          [107.5817411, 16.4642941],
+          [107.5879611, 16.4681606],
+          [107.5914587, 16.4730940],
+          [107.5917108, 16.4748687],
+          [107.5916733, 16.4782741],
+          [107.5914372, 16.4809233],
+          [107.5915499, 16.4836445],
+          [107.5916304, 16.4856969],
+          [107.5919683, 16.4870343],
+          [107.5920702, 16.4887163],
+          [107.5913353, 16.4888089]
+        ]
+      }
+    }
+  ]
+}

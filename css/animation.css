@@ -1,0 +1,490 @@
+/* ============================================================
+   ANIMATION.CSS - Keyframes, Transitions & Effects
+   Bản đồ số Hành trình Lễ rước Điện Huệ Nam
+   ============================================================ */
+
+/* ---- Marker Bounce ---- */
+@keyframes markerBounce {
+  0%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-12px); }
+  40% { transform: translateY(-6px); }
+  60% { transform: translateY(-3px); }
+}
+
+.marker-bounce {
+  animation: markerBounce 0.8s ease-out;
+}
+
+/* ---- Marker Pulse ---- */
+@keyframes markerPulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--color-primary-glow);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 12px transparent;
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    transform: scale(1);
+  }
+}
+
+.marker-pulse {
+  animation: markerPulse 2s ease-in-out infinite;
+}
+
+/* ---- Marker Pulse Ring (outer ring effect) ---- */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.marker-pulse-ring::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--marker-size);
+  height: var(--marker-size);
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  transform: translate(-50%, -50%) scale(0.8);
+  animation: pulseRing 2s ease-out infinite;
+  pointer-events: none;
+}
+
+/* ---- Marker Blink ---- */
+@keyframes markerBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.marker-blink {
+  animation: markerBlink 1.5s ease-in-out infinite;
+}
+
+/* ---- Marker Scale In ---- */
+@keyframes markerScaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.marker-scale-in {
+  animation: markerScaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ---- Marker Float ---- */
+@keyframes markerFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.marker-float {
+  animation: markerFloat 3s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   POLYLINE ANIMATIONS
+   ============================================================ */
+
+/* ---- Polyline Drawing Effect ---- */
+@keyframes polylineDraw {
+  0% {
+    stroke-dashoffset: var(--dash-length, 2000);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.polyline-draw {
+  stroke-dasharray: var(--dash-length, 2000);
+  stroke-dashoffset: var(--dash-length, 2000);
+  animation: polylineDraw var(--draw-duration, 2s) ease-in-out forwards;
+}
+
+/* ---- Polyline Flow (moving dashes) ---- */
+@keyframes polylineFlow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -30; }
+}
+
+.polyline-flow {
+  stroke-dasharray: 10 5;
+  animation: polylineFlow 1s linear infinite;
+}
+
+/* ---- Polyline Glow ---- */
+@keyframes polylineGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px var(--color-route-glow));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px var(--color-route-glow));
+  }
+}
+
+.polyline-glow {
+  animation: polylineGlow 2s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   UI ANIMATIONS
+   ============================================================ */
+
+/* ---- Fade In ---- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-base) ease-out forwards;
+}
+
+/* ---- Fade Out ---- */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-out {
+  animation: fadeOut var(--transition-base) ease-in forwards;
+}
+
+/* ---- Fade In Up ---- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp var(--transition-slow) ease-out forwards;
+}
+
+/* ---- Fade In Down ---- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-down {
+  animation: fadeInDown var(--transition-slow) ease-out forwards;
+}
+
+/* ---- Slide In Right ---- */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight var(--transition-smooth) forwards;
+}
+
+/* ---- Slide Out Right ---- */
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.slide-out-right {
+  animation: slideOutRight var(--transition-smooth) forwards;
+}
+
+/* ---- Slide In Up (for mobile bottom sheet) ---- */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.slide-in-up {
+  animation: slideInUp var(--transition-smooth) forwards;
+}
+
+/* ---- Slide Out Down ---- */
+@keyframes slideOutDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.slide-out-down {
+  animation: slideOutDown var(--transition-smooth) forwards;
+}
+
+/* ---- Scale In ---- */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  animation: scaleIn var(--transition-base) ease-out forwards;
+}
+
+
+/* ============================================================
+   PROGRESS BAR ANIMATIONS
+   ============================================================ */
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: var(--progress-width, 0%); }
+}
+
+@keyframes progressShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.progress-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: progressShimmer 2s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   LOADING ANIMATIONS
+   ============================================================ */
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes dotPulse {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+.loading-dots span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  margin: 0 3px;
+  animation: dotPulse 1.4s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+
+/* ============================================================
+   TOAST/NOTIFICATION ANIMATIONS
+   ============================================================ */
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.95);
+  }
+}
+
+.toast-enter {
+  animation: toastSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.toast-exit {
+  animation: toastSlideOut 0.3s ease-in forwards;
+}
+
+
+/* ============================================================
+   COMPLETION CELEBRATION
+   ============================================================ */
+
+@keyframes celebrationBurst {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.celebration-burst {
+  animation: celebrationBurst 1s ease-out forwards;
+}
+
+@keyframes confettiDrop {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+
+/* ============================================================
+   THEME TOGGLE ANIMATION
+   ============================================================ */
+
+@keyframes themeSwitch {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(0.8); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.theme-switching {
+  animation: themeSwitch 0.5s ease-in-out;
+}
+
+
+/* ============================================================
+   BUTTON RIPPLE EFFECT
+   ============================================================ */
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+}
+
+.btn-ripple:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+
+/* ============================================================
+   REDUCED MOTION PREFERENCES
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .marker-pulse,
+  .marker-blink,
+  .marker-float,
+  .polyline-flow,
+  .polyline-glow,
+  .progress-shimmer {
+    animation: none !important;
+  }
+}
