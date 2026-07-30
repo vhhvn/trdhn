@@ -301,13 +301,95 @@ button:focus-visible {
    CUSTOM MARKER STYLES
    ============================================================ */
 
-.custom-marker {
+.custom-marker-leaflet-container {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-marker-wrapper {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 80px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Container cho hình ảnh thumbnail trên đầu chấm tròn */
+.marker-thumb-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.custom-marker-wrapper:hover .marker-thumb-container {
+  transform: translateY(-4px) scale(1.1);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
+  z-index: 10;
+}
+
+/* Khung viền hình ảnh */
+.marker-thumb {
+  width: 58px;
+  height: 42px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--color-surface);
+  background: var(--color-surface-hover);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-marker-wrapper.is-active .marker-thumb {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-dim);
+}
+
+.marker-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.custom-marker-wrapper:hover .marker-thumb img {
+  transform: scale(1.12);
+}
+
+.marker-thumb-placeholder {
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Mũi tên nhỏ bên dưới ảnh chỉ xuống chấm tròn */
+.marker-thumb-arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--color-surface);
+  margin-top: -1px;
+  transition: border-top-color 0.2s ease;
+}
+
+.custom-marker-wrapper.is-active .marker-thumb-arrow {
+  border-top-color: var(--color-primary);
+}
+
+/* Chấm tròn số */
 .marker-icon {
   width: var(--marker-size);
   height: var(--marker-size);
@@ -318,7 +400,7 @@ button:focus-visible {
   font-weight: var(--fw-bold);
   font-size: var(--fs-base);
   color: #FFFFFF;
-  border: 3px solid #FFFFFF;
+  border: 2px solid var(--color-surface);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition: all var(--transition-base);
   cursor: pointer;
@@ -343,7 +425,6 @@ button:focus-visible {
   width: var(--marker-size-active);
   height: var(--marker-size-active);
   font-size: var(--fs-md);
-  border-width: 3px;
   box-shadow: 0 0 0 4px var(--color-primary-glow), 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
@@ -356,32 +437,33 @@ button:focus-visible {
   background: var(--color-marker-default);
 }
 
+/* Nhãn tên địa điểm phía dưới */
 .marker-label {
-  position: absolute;
-  bottom: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 3px;
   white-space: nowrap;
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
+  font-size: 11px;
+  font-weight: 600;
   color: var(--color-text);
   background: var(--color-surface);
   padding: 2px 8px;
-  border-radius: var(--radius-sm);
+  border-radius: 12px;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border);
   pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--transition-fast);
+  opacity: 0.95;
+  transition: opacity var(--transition-fast), border-color var(--transition-fast);
   z-index: 3;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
-.custom-marker:hover .marker-label {
+.custom-marker-wrapper:hover .marker-label,
+.custom-marker-wrapper.is-active .marker-label {
   opacity: 1;
-}
-
-.marker-icon--current + .marker-label {
-  opacity: 1;
+  background: var(--color-surface-elevated);
+  border-color: var(--color-primary);
 }
 
 /* Popup content inside markers */

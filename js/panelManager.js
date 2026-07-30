@@ -207,10 +207,12 @@
   function showStartInfo(startLocation) {
     if (!startLocation) return;
 
+    const badgeClass = `panel-location__badge--${startLocation.type || 'start'}`;
+
     const html = `
       <div class="panel-location active fade-in-up">
-        <span class="panel-location__badge panel-location__badge--start">
-          ${Utils.getLocationIcon('start')} ${Utils.escapeHtml(startLocation.typeLabel)}
+        <span class="panel-location__badge ${badgeClass}">
+          ${Utils.getLocationIcon(startLocation.type || 'start')} ${Utils.escapeHtml(startLocation.typeLabel)}
         </span>
 
         <h2 class="panel-location__name">${Utils.escapeHtml(startLocation.name)}</h2>
@@ -268,6 +270,11 @@
     `;
 
     _updateContent(html);
+
+    // Trên mobile, mở bottom sheet ra half
+    if (Utils.isMobile()) {
+      _setSheetState('half');
+    }
   }
 
   /**

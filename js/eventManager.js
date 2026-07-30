@@ -218,18 +218,22 @@
   }
 
   /**
-   * Khởi tạo handler cho click vào popup "Xem chi tiết"
+   * Khởi tạo handler cho click vào popup "Xem chi tiết" và hình ảnh marker trên bản đồ
    */
   function _initPopupClickHandler() {
     document.addEventListener('click', (e) => {
-      const action = e.target.closest('.popup-content__action');
-      if (action) {
-        const locationId = action.getAttribute('data-location-id');
+      const target = e.target.closest('.popup-content__action') || 
+                     e.target.closest('.marker-thumb-container') ||
+                     e.target.closest('.marker-icon');
+      if (target) {
+        const locationId = target.getAttribute('data-location-id');
         if (locationId) {
           const location = HueNamApp.DataLoader.getLocationById(locationId);
           if (location) {
+            HueNamApp.MarkerManager.highlightMarker(location.id);
             PanelManager.showStartInfo(location);
             PanelManager.showPanel();
+            MapModule.flyTo([location.latitude, location.longitude]);
           }
         }
       }

@@ -27,7 +27,7 @@
           "fullDescription": "Thánh đường 352 Chi Lăng là trụ sở tâm linh quan trọng của tín ngưỡng thờ Mẫu tại Huế. Nơi đây là điểm xuất phát chính của đoàn rước. Trước khi khởi hành, các vị chủ lễ và tín đồ sửa sang mũ áo, cờ hoa, tập kết kiệu rước và dâng hương cúng cáo trước khi xuống bến thuyền.",
           "festivalRole": "Là nơi tập kết toàn bộ đội hình rước, sửa sang trang phục lễ tế và cử hành nghi lễ khởi hành.",
           "ritual": "Lễ Cáo yết khởi hành, dâng hương, nghi thức rước kiệu Thánh Mẫu xuống bến thuyền.",
-          "image": "",
+          "image": "assets/images/custom_images/chilang.jpg",
           "audio": "",
           "source": "Tư liệu Lễ hội Điện Huệ Nam"
         },
@@ -44,7 +44,7 @@
           "fullDescription": "Nghênh Lương Đình là di tích kiến trúc độc đáo bên bờ Bắc sông Hương, từng là nơi nghỉ chân và hóng mát của các vị vua triều Nguyễn. Trong lễ rước tháng 3 Âm lịch, đoàn rước ghé bến Nghênh Lương Đình để thực hiện các nghi thức cúng bái và nghênh đón cộng đồng tín ngưỡng tham gia.",
           "festivalRole": "Là điểm dừng nghi lễ quan trọng trên sông Hương, nơi đoàn rước làm lễ nghênh đón và dâng hương.",
           "ritual": "Nghi lễ cúng bái nghênh đón trên sông Hương, dâng hương tạ ơn trời đất và cầu an.",
-          "image": "",
+          "image": "assets/images/custom_images/nghenhluong.jpg",
           "audio": "",
           "source": "Tư liệu Lễ hội Điện Huệ Nam"
         },
@@ -61,7 +61,7 @@
           "fullDescription": "Điện Huệ Nam (còn gọi là Điện Hòn Chén) tọa lạc tại vị trí phong cảnh sơn thủy hữu tình trên ngọn núi Ngọc Trản ven sông Hương, thuộc xã Hương Thọ, thành phố Huế. Đây là trung tâm tín ngưỡng thờ Mẫu Thánh Mẫu Thiên Y A Na linh thiêng bậc nhất xứ Huế. Khi đoàn rước cập bến, kiệu rước được thỉnh lên Điện để tiến hành đại lễ tế, dâng lễ vật, múa hát chầu văn.",
           "festivalRole": "Là trung tâm tâm linh và đích đến chính của hành trình lễ rước, nơi cử hành đại lễ tế Thánh Mẫu.",
           "ritual": "Đại lễ tế Thánh Mẫu, hát chầu văn, múa hầu đồng, lễ tạ ơn.",
-          "image": "",
+          "image": "assets/images/custom_images/dienhuenam.webp",
           "audio": "",
           "source": "Tư liệu Lễ hội Điện Huệ Nam"
         },
@@ -78,7 +78,7 @@
           "fullDescription": "Sau khi kết thúc các nghi lễ tại Điện Huệ Nam, đoàn thuyền rước xuôi dòng sông Hương trở về Thánh đường 352 Chi Lăng. Tại đây cử hành lễ Hoàn tạ, khép lại hành trình rước tháng 3 Âm lịch.",
           "festivalRole": "Nơi đón đoàn rước trở về và thực hiện nghi lễ Hoàn tạ kết thúc hội rước.",
           "ritual": "Lễ Hoàn tạ, an vị kiệu rước và thụ lộc.",
-          "image": "",
+          "image": "assets/images/custom_images/chilang.jpg",
           "audio": "",
           "source": "Tư liệu Lễ hội Điện Huệ Nam"
         }
@@ -106,7 +106,7 @@
           "fullDescription": "Trong Lễ hội Tháng 7 (Chính hội Mùa Thu), Thánh đường 352 Chi Lăng tổ chức đoàn rước quy mô lớn nhất trong năm. Hàng ngàn tín đồ và du khách tập trung tại bến thuyền 352 Chi Lăng để khởi hành xuôi dòng sông Hương.",
           "festivalRole": "Nơi xuất phát chính của đại hội rước Chính hội Tháng 7.",
           "ritual": "Đại lễ Cáo yết, hạ thủy bằng thuyền rước, dâng hương mở hội rước trên sông.",
-          "image": "",
+          "image": "assets/images/custom_images/chilang.jpg",
           "audio": "",
           "source": "Tư liệu Lễ hội Điện Huệ Nam"
         },
@@ -123,7 +123,7 @@
           "fullDescription": "Sau khi cập bến Điện Huệ Nam tại núi Ngọc Trản, đoàn rước cử hành các nghi lễ cúng tế ban đầu, nghênh thỉnh Bằng và Sắc phong của Thánh Mẫu để chuẩn bị sang Đình làng Hải Cát.",
           "festivalRole": "Nơi tiếp nhận đoàn rước và cử hành nghi lễ Mơ Yết trước khi rước Bằng sang Đình làng.",
           "ritual": "Lễ Mơ Yết, thỉnh Bằng và Sắc phong Thánh Mẫu.",
-          "image": "",
+          "image": "assets/images/custom_images/dienhuenam.webp",
           "audio": "",
           "source": "Tư liệu Lễ hội Điện Huệ Nam"
         },
@@ -140,7 +140,7 @@
           "fullDescription": "Đình làng Hải Cát là ngôi đình cổ của làng Hải Cát nằm đối diện và kề cận Điện Huệ Nam. Trong Lễ hội Tháng 7, nghi thức rước Bằng từ Điện Huệ Nam sang Đình Hải Cát là nét đặc sắc riêng biệt. Đoàn rước mang Bằng và Sắc phong qua Đình để nhân dân bái yết, sau đó rước trở lại Điện.",
           "festivalRole": "Nơi rước Bằng Thánh Mẫu tới yết viếng, gắn kết tín ngưỡng thờ Mẫu với cộng đồng làng xã truyền thống.",
           "ritual": "Lễ rước Bằng và Sắc phong, cúng tế tại Đình làng, hát chầu văn giao lưu làng xã.",
-          "image": "",
+          "image": "assets/images/custom_images/haicat.png",
           "audio": "",
           "source": "Tư liệu Lễ hội Điện Huệ Nam"
         },
@@ -157,7 +157,7 @@
           "fullDescription": "Đoàn rước rước Bằng trở lại Điện Huệ Nam. Tại đây diễn ra Đại lễ tế Chính hội đêm Tháng 7 linh thiêng với các buổi hầu đồng, múa chầu văn kéo dài thấu đêm.",
           "festivalRole": "Nơi diễn ra Đại lễ tế Chính hội quan trọng nhất trong năm.",
           "ritual": "Đại lễ tế Chính hội, Chầu văn thấu đêm, rải hoa đăng trên sông Hương.",
-          "image": "",
+          "image": "assets/images/custom_images/dienhuenam.webp",
           "audio": "",
           "source": "Tư liệu Lễ hội Điện Huệ Nam"
         },
@@ -174,7 +174,7 @@
           "fullDescription": "Kết thúc kỳ Lễ hội Tháng 7, đoàn thuyền rước xuôi sông Hương trở về Thánh đường 352 Chi Lăng cử hành lễ Hoàn tạ.",
           "festivalRole": "Nơi đón đoàn rước trở về và kết thúc kỳ Chính hội Lễ rước.",
           "ritual": "Lễ Hoàn tạ, an vị tượng Mẫu và phát lộc.",
-          "image": "",
+          "image": "assets/images/custom_images/chilang.jpg",
           "audio": "",
           "source": "Tư liệu Lễ hội Điện Huệ Nam"
         }

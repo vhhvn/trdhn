@@ -46,6 +46,51 @@
   }
 
   /**
+   * Tạo HTML cho DivIcon marker (bao gồm hình ảnh thumbnail phía trên)
+   * @param {Object} location - Dữ liệu địa điểm
+   * @param {string} markerClass - Class màu cho marker
+   * @param {string} extraClass - Class bổ sung (animation/pulse)
+   * @param {number|null} index - Index delay animation
+   * @returns {string} HTML string
+   */
+  function _createMarkerIconHTML(location, markerClass, extraClass = '', index = null) {
+    const delayStyle = index !== null ? `style="animation-delay: ${index * 100}ms"` : '';
+    const scaleClass = index !== null ? 'marker-scale-in' : '';
+    const activeClass = extraClass.includes('marker-pulse') ? 'is-active' : '';
+
+    return `
+      <div class="custom-marker-wrapper ${activeClass}">
+        <!-- Hình ảnh thumbnail trên đầu chấm số -->
+        <div class="marker-thumb-container" 
+             role="button" 
+             aria-label="Xem thông tin ${Utils.escapeHtml(location.name)}" 
+             title="Nhấn để xem thông tin ${Utils.escapeHtml(location.name)}"
+             data-location-id="${location.id}">
+          <div class="marker-thumb">
+            ${location.image ?
+              `<img src="${Utils.escapeHtml(location.image)}" alt="${Utils.escapeHtml(location.name)}" loading="lazy">` :
+              `<div class="marker-thumb-placeholder">🏛️</div>`
+            }
+          </div>
+          <div class="marker-thumb-arrow"></div>
+        </div>
+
+        <!-- Chấm tròn có số -->
+        <div class="marker-icon ${markerClass} ${extraClass} ${scaleClass}" ${delayStyle}
+             role="button"
+             aria-label="${Utils.escapeHtml(location.name)} - ${Utils.escapeHtml(location.typeLabel)}"
+             tabindex="0"
+             data-location-id="${location.id}">
+          ${location.order}
+        </div>
+
+        <!-- Tên địa điểm bên dưới -->
+        <div class="marker-label">${Utils.escapeHtml(location.name)}</div>
+      </div>
+    `;
+  }
+
+  /**
    * Tạo một marker cho một địa điểm
    * @param {Object} location - Dữ liệu địa điểm
    * @param {number} index - Index cho animation delay
@@ -54,22 +99,13 @@
   function _createMarker(location, index) {
     const markerClass = _getMarkerClass(location.type);
 
-    // Tạo DivIcon tùy chỉnh
+    // Tạo DivIcon tùy chỉnh với ảnh phía trên
     const icon = L.divIcon({
-      className: 'custom-marker',
-      html: `
-        <div class="marker-icon ${markerClass} marker-scale-in" 
-             style="animation-delay: ${index * 100}ms"
-             role="button"
-             aria-label="${location.name} - ${location.typeLabel}"
-             tabindex="0">
-          ${location.order}
-        </div>
-        <div class="marker-label">${Utils.escapeHtml(location.name)}</div>
-      `,
-      iconSize: [Config.MARKER_CLASSES.CURRENT === markerClass ? 44 : 36, Config.MARKER_CLASSES.CURRENT === markerClass ? 44 : 36],
-      iconAnchor: [18, 18],
-      popupAnchor: [0, -22]
+      className: 'custom-marker-leaflet-container',
+      html: _createMarkerIconHTML(location, markerClass, '', index),
+      iconSize: [80, 110],
+      iconAnchor: [40, 68],
+      popupAnchor: [0, -70]
     });
 
     // Tạo marker
@@ -79,6 +115,17 @@
       alt: `Điểm ${location.order}: ${location.name}`,
       riseOnHover: true,
       riseOffset: 250
+    });
+
+    // Khi click vào marker/hình ảnh -> Hiển thị ngay thông tin địa điểm trong Panel
+    marker.on('click', () => {
+      highlightMarker(location.id);
+      const { PanelManager } = window.HueNamApp;
+      if (PanelManager) {
+        PanelManager.showStartInfo(location);
+        PanelManager.showPanel();
+      }
+      MapModule.flyTo([location.latitude, location.longitude]);
     });
 
     // Bind popup
@@ -197,39 +244,27 @@
     const location = marker._locationData;
     let markerClass = '';
     let extraClass = '';
-    let size = 36;
 
     switch (state) {
       case 'current':
         markerClass = Config.MARKER_CLASSES.CURRENT;
         extraClass = 'marker-pulse';
-        size = 44;
         break;
       case 'visited':
         markerClass = Config.MARKER_CLASSES.VISITED;
-        size = 36;
         break;
       case 'default':
       default:
         markerClass = _getMarkerClass(location.type);
-        size = 36;
         break;
     }
 
     const newIcon = L.divIcon({
-      className: 'custom-marker',
-      html: `
-        <div class="marker-icon ${markerClass} ${extraClass}"
-             role="button"
-             aria-label="${location.name} - ${location.typeLabel}"
-             tabindex="0">
-          ${location.order}
-        </div>
-        <div class="marker-label">${Utils.escapeHtml(location.name)}</div>
-      `,
-      iconSize: [size, size],
-      iconAnchor: [size / 2, size / 2],
-      popupAnchor: [0, -(size / 2 + 4)]
+      className: 'custom-marker-leaflet-container',
+      html: _createMarkerIconHTML(location, markerClass, extraClass, null),
+      iconSize: [80, 110],
+      iconAnchor: [40, 68],
+      popupAnchor: [0, -70]
     });
 
     marker.setIcon(newIcon);
